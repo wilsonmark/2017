@@ -1,0 +1,19 @@
+echo =====================================================================
+
+echo -n "Server IP Address: "
+/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
+
+echo
+
+echo -n "Jumlah account total: "
+cat /etc/passwd | wc -l
+
+echo -n "Jumlah account mahasiswa: "
+cat /etc/passwd | grep m264 | wc -l
+
+echo -n "Jumlah account online: "
+who | wc -l
+
+echo =====================================================================
+
+last | head -10
